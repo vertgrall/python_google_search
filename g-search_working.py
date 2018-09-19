@@ -8,11 +8,14 @@ import sys
 
 term = raw_input("Enter search subject: ")
 count = int(raw_input("enter how many results you want: "))
+extension = '.txt'
+filename = raw_input("Enter a name for the file: ") + extension
+
 lines = []
 for url in search(term, stop=count):
-#for url in search('"Seattle" Makers', stop=20):
+
     lines.append(url)
-outfile=open('./searchresults.txt', 'wb')
-# updated area
+outfile=open(filename, 'wb')
+
 outfile.write("\n".join(lines))
 print("\n".join(lines))
