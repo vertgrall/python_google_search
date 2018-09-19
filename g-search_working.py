@@ -4,6 +4,7 @@ from googlesearch import search
 import datetime
 import os
 import pickle
+import smtplib
 import sys
 
 term = raw_input("Enter search subject: ")
@@ -19,3 +20,13 @@ outfile=open(filename, 'wb')
 
 outfile.write("\n".join(lines))
 print("\n".join(lines))
+
+# Email results
+response = raw_input("Would you like a summary?")
+
+if response == "Yes":
+    print("generating summary...")
+print("****SUMMARY****")
+print("you searched for " + term)
+print("you received " + str(count) + " results")
+print("results exported to " + filename)
